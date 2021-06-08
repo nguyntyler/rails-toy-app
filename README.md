@@ -47,3 +47,6 @@ To create associations between tables, go into their respective model files. Inp
 - `first_user = User.first` grabs the first user and assigns it to the variable first_user.
 - `first_user.microposts` returns all the microposts with the **user_id** equal to the id of **first_user**.
 - `micropost.user` returns the user associated with the post.
+___
+When deploying to Heroku, it won't know the tables/relations we have created. To run the migrations we have created:
+> heroku run rails db:migrate
