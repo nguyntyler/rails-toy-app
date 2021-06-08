@@ -50,3 +50,12 @@ To create associations between tables, go into their respective model files. Inp
 ___
 When deploying to Heroku, it won't know the tables/relations we have created. To run the migrations we have created:
 > heroku run rails db:migrate
+___
+# What We Learned in this Chapter
+- Scaffolding automatically creates code to model data and interact with it through the web.
+- Scaffolding is good for getting started quickly but is bad for understanding.
+- Rails uses the model-view-controller (MVC) pattern for structuring web applications.
+- As interpreted by Rails, the REST architecture includes a standard set of URLs and controller actions for interacting with data models.
+- Rails supports data validations to place constraints on the values of data model attributes.
+- Rails comes with built-in functions for defining associations between different data models.
+- We can interact with Rails applications at the command line using the Rails console.
