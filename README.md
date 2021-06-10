@@ -47,6 +47,33 @@ To create associations between tables, go into their respective model files. Inp
 - `first_user = User.first` grabs the first user and assigns it to the variable first_user.
 - `first_user.microposts` returns all the microposts with the **user_id** equal to the id of **first_user**.
 - `micropost.user` returns the user associated with the post.
+
+#### Table associations through migrations
+[YouTube](https://www.youtube.com/watch?v=__ARsbP0h40&ab_channel=TomKadwillTomKadwill)
+> The video covers creating separate tables, using migrations to create associations and deleting unecessary columns from tables.
+
+One way we can also create associations through migrations is to run the command 
+```
+$ bin/rails g migration add_user_to_microposts user:references
+```
+This creates a a new migration file with the code
+```ruby
+class AddUserToMicroposts < ActiveRecord::Migration
+  def change
+    add_reference :micropost, :user, null:false, foreign_key:true
+  end
+end
+```
+Null constraint and foreign key attributes are assigned by default.
+Once the migration is ran via
+```
+$ bin/rails db:migrate
+```
+The schema file should update the microposts table with 
+```ruby
+t.integer "user_id"
+```
+Once that is done, you can now add the `has_many` or `belongs_to` in the respective model files.
 ___
 When deploying to Heroku, it won't know the tables/relations we have created. To run the migrations we have created:
 > heroku run rails db:migrate
