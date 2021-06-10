@@ -88,7 +88,7 @@ When we populate the microposts, we assign the user attribute to the user variab
 ___
 When deploying to Heroku, it won't know the tables/relations we have created. To run the migrations we have created:
 ```
-heroku run rails db:migrate
+$ heroku run rails db:migrate
 ```
 ___
 # What We Learned in this Chapter
