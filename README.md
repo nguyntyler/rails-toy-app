@@ -74,9 +74,22 @@ The schema file should update the microposts table with
 t.integer "user_id"
 ```
 Once that is done, you can now add the `has_many` or `belongs_to` in the respective model files.
+To test this, we can populate the tables via
+```
+$ rails c
+> user = User.create!(attributes:value)
+> micropost = Micropost.create!(attributes:value, user: user)
+```
+When we populate the microposts, we assign the user attribute to the user variable we created before it. If it works, we are able to run these commands and have it return the appropriate values.
+```
+> user.microposts
+> micropost.user
+```
 ___
 When deploying to Heroku, it won't know the tables/relations we have created. To run the migrations we have created:
-> heroku run rails db:migrate
+```
+heroku run rails db:migrate
+```
 ___
 # What We Learned in this Chapter
 - Scaffolding automatically creates code to model data and interact with it through the web.
