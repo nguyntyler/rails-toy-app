@@ -43,7 +43,7 @@ ___
 ### Associations
 To create associations between tables, go into their respective model files. Input the code `belongs_to :table` or `has_many :tables` to create the association.
 #### How to navigate through the table associations
-[!AssociationImage](https://github.com/nguyntyler/rails-toy-app/blob/main/screenshots/navigating_table_associations_in_console.png)
+[AssociationImage](https://github.com/nguyntyler/rails-toy-app/blob/main/screenshots/navigating_table_associations_in_console.png)
 - `first_user = User.first` grabs the first user and assigns it to the variable first_user.
 - `first_user.microposts` returns all the microposts with the **user_id** equal to the id of **first_user**.
 - `micropost.user` returns the user associated with the post.
